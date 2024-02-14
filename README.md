@@ -11,7 +11,7 @@ This application runs on Java backend and checks if the entered texts through CL
 ### Feature #1
 - Given two strings A and B as input
 - A and B can have multiple words with spaces or special characters
-- The program should return if these strings are anagrams or not (case insensitive, ignore spaces and special characters)
+- The program should return if these strings are anagrams or not (case insensitive, ignored spaces and special characters)
 
 ### For feature #2:
 - Given these hypothetical invocations of the feature#1 function
@@ -25,3 +25,18 @@ This application runs on Java backend and checks if the entered texts through CL
 - [Java JDK](https://www.oracle.com/java/technologies/downloads/)
 - [Maven](https://maven.apache.org/download.cgi)
 
+## To run the application locally
+Run the following commands in the terminal:
+```
+mvn clean compile package
+mvn exec:java
+```
+
+## To run the application online
+The application is configured in Replit. You can run the application online by following these steps:
+ - Create an account on [Replit](https://replit.com/)
+ - Fork my Anagram-App repository from [here](https://replit.com/@shikhar-arora/AnagramApp) by clicking *Fork & Run*
+```
+https://replit.com/@shikhar-arora/AnagramApp
+```  
+ - Click on the *Run* button to run the application.
