@@ -4,7 +4,6 @@ import java.util.Arrays;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
-import java.util.Scanner;
 import java.util.Set;
 
 public class AnagramUtils {
@@ -15,34 +14,15 @@ public class AnagramUtils {
 
     public static void clearMemory() {
         anagramsMap.clear();
-        System.out.println("Memory cleared successfully");
     }
 
-    public static void getAnagrams(Scanner scanner) {
-        System.out.print("Enter the text for which you want to get the anagrams: ");
-        String text = scanner.nextLine();
+    public static Set<String> getAnagramsOfString(String text) {
         if (anagramsMap.containsKey(getSortedChars(text))) {
             Set<String> anagramSet = anagramsMap.get(getSortedChars(text));
             anagramSet.remove(text);
-            System.out.println("The anagrams for the given text are: " + anagramSet);
+            return anagramSet;
         } else {
-            System.out.println("No anagrams found for the given text");
-        }
-    }
-
-    public static void checkAnagrams(Scanner scanner) {
-        System.out.println("Checking if two texts are anagrams of each other");
-        System.out.print("Enter the first text: ");
-        String text1 = scanner.nextLine();
-        System.out.print("Enter the second text: ");
-        String text2 = scanner.nextLine();
-        if (areAnagrams(text1, text2)) {
-            updateAnagramsMap(text1, text2, true);
-            System.out.println("'" + text1 + "' and '" + text2 + "' are anagrams");
-        } else {
-            updateAnagramsMap(text1, text2, false);
-            System.out.println("The given strings are not anagrams.");
-
+            return new HashSet<>();
         }
     }
 
@@ -82,9 +62,9 @@ public class AnagramUtils {
 
     public static String getSortedChars(String text) {
         text = text.trim().replace(" ", "").toLowerCase();
+        text = text.replaceAll("[^a-zA-Z0-9]", "");
         char[] charArray = text.toCharArray();
         Arrays.sort(charArray);
         return new String(charArray);
     }
-
 }
